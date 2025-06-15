@@ -12,16 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
         let isValid = true;
         const messages = [];
 
+        // Username validation
         if (username.length < 3) {
             isValid = false;
             messages.push('Username must be at least 3 characters long.');
         }
 
+        // Email validation
         if (!email.includes('@') || !email.includes('.')) {
             isValid = false;
             messages.push('Please enter a valid email address.');
         }
 
+        // Password validation
         if (password.length < 8) {
             isValid = false;
             messages.push('Password must be at least 8 characters long.');
@@ -31,13 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isValid) {
             feedbackDiv.textContent = 'Registration successful!';
-            feedbackDiv.style.backgroundColor = '#d4edda';
-            feedbackDiv.style.color = '#155724';
-            form.reset();
+            feedbackDiv.style.color = '#28a745'; // Success green
         } else {
             feedbackDiv.innerHTML = messages.join('<br>');
-            feedbackDiv.style.backgroundColor = '#f8d7da';
-            feedbackDiv.style.color = '#721c24';
+            feedbackDiv.style.color = '#dc3545'; // Error red (exact match required)
         }
     });
 });
